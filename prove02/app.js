@@ -1,20 +1,7 @@
-/* const http = require('http');
-
-const server = http.createServer((req, res) => {
-    res.setHeader('ContentType', 'text/html');
-    res.write('<html>');
-    res.write('<head><title>Team Activity Page</title></head>');
-    res.write('<body><h1>Welcome!</h1></body>');
-    res.write('</html>');
-    return res.end();
-});
-
-server.listen(5000); */
-
 const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express'); //USe express npm package
-const expressHbs = require('express-handlebars');
+
 
 const app = express(); //Use an object to access express functions
 
