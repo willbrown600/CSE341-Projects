@@ -26,7 +26,7 @@ router.post('/addUser', (req, res, next) => {
 });
 
 router.get('/', (req, res, next) => {
-    res.render('pages/ta02', {
+    res.render('views/pages/ta02', {
         title: 'Team Activity 02',
         path: '/ta02', // For pug, EJS
         activeTA03: true, // For HBS
