@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-const arrayOfUsers = ['Aaron', 'Jen', 'Jennifer', 'John'];
+const userArray = ['Aaron', 'Jen', 'Jennifer', 'John'];
 
 // For requirement 03 of TA02
 router.post('/removeUser', (req, res, next) => {
@@ -20,14 +20,15 @@ router.post('/removeUser', (req, res, next) => {
 
 
 router.post('/addUser', (req, res, next) => {
-    const newUser = req.body.newUser;
-    arrayOfUsers.push(newUser);
+    const newUser = req.body.user;
+    userArray.push(newUser);
     res.redirect('/ta02/');
 });
 
 router.get('/', (req, res, next) => {
-    res.render('views/pages/ta02', {
+    res.render('pages/ta02', {
         title: 'Team Activity 02',
+        users: userArray,
         path: '/ta02', // For pug, EJS
         activeTA03: true, // For HBS
         contentCSS: true, // For HBS

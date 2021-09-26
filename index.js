@@ -11,6 +11,7 @@ const ta01Routes = require('./routes/ta01');
 const ta02Routes = require('./routes/ta02');
 const ta03Routes = require('./routes/ta03');
 const ta04Routes = require('./routes/ta04');
+const prove02 = require('./prove02.app')
 
 app
     .use(express.static(path.join(__dirname, 'public')))
@@ -35,6 +36,13 @@ app
             path: '/',
         });
     })
+    /*.use('/prove02', (req, res, next) => {
+        // 404 page
+        res.render('prove02/app', {
+            title: 'Prove 02 Assignment',
+            path: req.url
+        });
+    })*/
     .use((req, res, next) => {
         // 404 page
         res.render('pages/404', {
