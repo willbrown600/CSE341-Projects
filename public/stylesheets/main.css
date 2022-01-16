@@ -2,6 +2,7 @@
     background: #0065bd;
     color: white;
     padding-bottom: 80px;
+    text-decoration: none;
 }
 
 .jumbotron .btn-primary {
@@ -43,7 +44,7 @@
     height: 5rem;
 }
 
-.form-control {
-    margin: 0;
-    padding: 0;
+input,
+Button {
+    color: black;
 }

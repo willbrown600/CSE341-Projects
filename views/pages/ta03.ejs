@@ -2,51 +2,22 @@
 <html>
 
 <head>
-    <% include ../includes/header.ejs %>
-        <style>
-            #searchText {
-                color: black;
-            }
-        </style>
+  <% include ../includes/header.ejs %>
 </head>
 
 <body>
-    <% include ../includes/nav.ejs %>
-        <div class="jumbotron text-center">
-            <div class="container">
-                <input type="text" name="searchTag" value="<%= items.tag %>" id="searchText">
-                <form action="/" method="POST" class="btn">
-                    <button type="submit" name="searchTag" id="searchText">Search</button>
-                </form>
+  <% include ../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1>
+          <%= title %>
+        </h1>
+        <p>This is the placeholder for Team Activity 03</p>
+      </div>
+    </div>
+    <div class="container">
 
-                <% for(var i=0; i < items.length; i++) {%>
-
-                    <% if(i % 3==0) { %>
-
-                        <div class="card-deck">
-                            <% } %>
-                                <div class="card cCard">
-                                    <h2 class="card-title">
-                                        <%= items[i].name %>
-                                    </h2>
-                                    <img src="<%= items[i].imageUrl %>" class="card-img-top cImage">
-                                    <div class="card-body">
-
-                                        <h3>
-                                            <%= items[i].price %>
-                                        </h3>
-                                        <p class="card-text cText">
-                                            <%= items[i].description %>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <% if(i % 3==2) { %>
-                        </div>
-                        <br>
-                        <% } %>
-                            <% } %>
-            </div>
+    </div>
 
 
 </body>
