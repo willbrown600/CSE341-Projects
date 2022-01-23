@@ -5,7 +5,7 @@ const router = express.Router();
 // This is the same solution, but implemented in our app using
 // proper routing for the view engine
 
-const activities = ['soccer', 'basketball', 'football', 'swimming'];
+const activities = ['soccer', 'basketball', 'football', 'swimming', 'hiking'];
 router.get('/', (req, res, next) => {
   // Request handling
   // CORE CHALLENGE 1 -

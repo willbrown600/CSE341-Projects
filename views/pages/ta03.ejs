@@ -2,23 +2,44 @@
 <html>
 
 <head>
-  <% include ../includes/header.ejs %>
+    <% include ../includes/header.ejs %>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/Items.css" />
 </head>
 
 <body>
-  <% include ../includes/nav.ejs %>
-    <div class="jumbotron text-center">
-      <div class="container">
-        <h1>
-          <%= title %>
-        </h1>
-        <p>This is the placeholder for Team Activity 03</p>
-      </div>
-    </div>
-    <div class="container">
+    <% include ../includes/nav.ejs %>
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>
+                    <%= title %>
+                </h1>
+                <p>List of Items</p>
+                <form action="/ta03" method="GET">
+                    <input class="search" type="text" placeholder="search" name="search">
+                </form>
+            </div>
 
-    </div>
-
+        </div>
+        <div class="container">
+            <% if(items.length == 0) { %>
+                nothing...
+                <% } else { %>
+                    <ul>
+                        <% for(item of items) { %>
+                            <li id="iTitle">
+                                <%= item.name %>
+                            </li>
+                            <li class="image"><img src="<%= item.imageUrl %>" width="400px"><img></li>
+                            <li>$
+                                <%= item.price %>
+                            </li>
+                            <li>
+                                <%= item.description %>
+                            </li>
+                            <% } %>
+                    </ul>
+                    <% } %>
+        </div>
 
 </body>
 
