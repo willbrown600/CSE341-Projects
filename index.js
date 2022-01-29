@@ -1,8 +1,11 @@
 // Our initial setup (package requires, port number setup)
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
 const PORT = process.env.PORT || 5000; // So we can run on heroku || (OR) localhost:5000
+
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -11,6 +14,23 @@ const ta01Routes = require('./routes/ta01');
 const ta02Routes = require('./routes/ta02');
 const ta03Routes = require('./routes/ta03');
 const ta04Routes = require('./routes/ta04');
+
+const corsOptions = {
+    origin: 'https://cse341billsprojects.herokuapp.com/',
+    optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
+const options = {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: true,
+    family: 4
+}
+
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb + srv://billbrown18085:Speights1979!@cluster0.w3qub.mongodb.net/BillsDatabase?retryWrites=true&w=majority"
 
 app
     .use(express.static(path.join(__dirname, 'public')))
@@ -43,3 +63,9 @@ app
         });
     })
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+mongoose.connect(MONGODB_URL, options).then((result) => {
+    app.listen(PORT);
+}).catch(error => {
+    console.log(error);
+});
